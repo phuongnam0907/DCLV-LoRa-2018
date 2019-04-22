@@ -1,0 +1,230 @@
+\NeedsTeXFormat{LaTeX2e}
+\documentclass[12pt,a4paper,oneside,openright]{Book}
+%\pagestyle{empty}
+\usepackage[utf8]{vietnam}
+\usepackage{listings}
+\usepackage{indentfirst}
+\usepackage{amsmath,amsfonts,amssymb,fancyhdr}
+\usepackage{amsthm,amsxtra,latexsym, amscd}
+\usepackage[top=3.5cm, bottom=3cm, left=3.5cm, right=2.0cm] {geometry}
+\usepackage[unicode]{hyperref}
+\usepackage{graphicx}
+\graphicspath{images}
+\usepackage{titlesec}
+\usepackage{color}
+\usepackage[table]{xcolor}
+\graphicspath{ {images}}
+\setcounter{secnumdepth}{5}
+\usepackage{afterpage}
+\usepackage{boxedminipage,fancybox}
+%\hoffset=-0.3truecm %
+%\voffset=-2.5truecm %
+%\textheight=26truecm %
+%\textwidth=16truecm %
+%\oddsidemargin 28pt \footskip 30pt
+\font\tench=t5-lmb10 at18pt%
+\titleformat{\chapter}[display]
+{\normalfont\large\filcenter\bfseries}
+{{{\chaptertitlename\,}\thechapter}} {1pc}{%\vspace{1pc}%
+{\tench}\MakeUppercase}% Dinh nghia lai ten chuong
+%{\tench}}%\MakeUppercase}% Dinh nghia lai ten chuong
+
+\renewcommand{\theequation}{\thechapter.\arabic{equation}}% Danh lai so cong thuc toan
+\font\tieude=t5-lmb10 at 14pt
+ \pagestyle{fancy}
+\renewcommand\headrulewidth{0 pt}
+ \lhead{ }
+ \chead{\thepage }
+ \rhead{  }
+\lfoot{ }
+\cfoot{ }
+\rfoot{ }
+\numberwithin{subsection}{section}
+%------------------------------------------------------------
+\theoremstyle{definition}
+%\swapnumbers
+%{\theorembodyfont{\rmfamily}
+\theoremstyle{plain}
+\newtheorem{theorem}{Định lý}[section]
+\newtheorem{dl}[theorem]{Định lý}
+\newtheorem{hq}[theorem]{Hệ quđả}
+\newtheorem{corollary}[theorem]{Hệ quả}
+\newtheorem{problem}{Bài toán}
+\newtheorem{main}{Định lý cơ bản}
+\newtheorem{bd}[theorem]{Bổ đề}
+\newtheorem{lemma}[theorem]{Bổ đề}
+\newtheorem{md}[theorem]{Mệnh đề}
+\newtheorem{proposition}[theorem]{Mệnh đề}
+\theoremstyle{definition}
+\newtheorem{dn}[theorem]{Định nghĩa}
+\newtheorem{definition}[theorem]{Định nghĩa}
+\theoremstyle{definition}
+\theoremstyle{remark}
+\theoremstyle{definition}
+\newtheorem{note}[theorem]{\bf Chú ý}
+\newtheorem{vd}[theorem]{\bf Ví dụ}
+\newtheorem{example}[theorem]{Ví dụ}
+\newtheorem{nx}[theorem]{\bf Nhận xét}
+\newtheorem{remark}[theorem]{Nhận xét}
+\newtheoremstyle{vd}% name
+  {3pt}%      Space above
+  {3pt}%      Space below
+  {}%         Body font
+  {}%         Indent amount (empty = no indent, \parindent = para indent)
+  {\bfseries}% Thm head font
+  {.}%        Punctuation after thm head
+  {.5em}%     Space after thm head: " " = normal interword space;
+        %       \newline = linebreak
+  {}%
+
+\fancyhf{}
+\pagestyle{fancy}
+\fancyhead[L]{\textbf{Đề cương luận văn 2018}}
+\renewcommand{\headrulewidth}{1pt}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[C]{ \thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+
+
+%-----------------------------------------------------------------------
+%\includeonly{bia1}
+\renewcommand{\baselinestretch}{1.5}
+\begin{document}
+\font\chuong=t5-lmb10 at12pt%
+ \def\chaptername{\chuong CHƯƠNG}
+\fontsize{14pt}{14pt}\selectfont% Chon cỡ font
+%Dinh n ghia viet tat
+\def\e{$\varepsilon$}
+\def\ptd {\,$p$-trơn đều\,}
+\def\xs{$(\Omega,\mathcal{F},\mathbf{P})$}
+\def\F{$\mathcal{F}$}
+\def\X{$\Bbb{E}$\,\,}
+\def\a{$\mathcal{A}$}
+\def\E{\,$\Bbb{E}$\,}
+\def\be{$\mathcal{B}(\Bbb{E})$\,\,}
+\def\spm{$E,;\;{\mathcal{B}}$}
+\def\htxs{\xrightarrow{\mathbf{P}}}
+\def\m{{\bf m}}
+\def\n{{\bf n}}
+\def\k{{\bf k}}
+\def\l{{\bf l}}
+%\def\i{{\bf i}}
+%----------------------------------------------------------------------------
+\def\RR{$\Bbb{R}\times\Bbb{R}$}
+\def\R2{$\Bbb{R}^2$}
+\def\Fn{\mathcal{F}_n}
+\def\Fmn{\mathcal{F}_{mn}}
+\def\Fij{\mathcal{F}_{ij}}
+\def\Xi{\{X_i, i\geq 1\}}
+\def\Xij{\{X_{ij};i\geq 1,j\geq 1\}}
+%--------------------------------------------------------------------------
+\newcommand{\I}{\mathbb I}% hàm chỉ tiêu
+\newcommand{\bE}{\mathbb E}% không gian Banach
+\newcommand{\fP}{\mathbf P}% xác suất
+\newcommand{\mL}{\mathcal{L}}
+\newcommand{\mF}{\mathcal{F}\,}
+\newcommand{\fE}{\mathbf E}
+\newcommand{\BE}{$\mathcal{B}(\mathbb{E})$\,}
+\newcommand{\hcc}{$\xrightarrow{h.c.c}$\,}
+\newcommand{\tb}{$\xrightarrow{\mathcal{L}}$}
+\newcommand{\xij}{$\{X_{ij}; i, j \geq1\}$\,}
+\newcommand{\xmn}{$\{X_{mn}; m\geq 1, n \geq1\}$\,}
+\newcommand{\aij}{$\{A_{mnij};\, m, n, i, j \geq  1\}$}
+%-----------------------------------------------------------------------
+\def\al{{\alpha}}
+\def\R{{\Bbb R}}
+\def\F{{\mathcal F}}
+\def\N{\Bbb{N}^d}
+%----------------------------------------------------------------------------------------------------------%
+\lstset{
+    language=Java,
+    basicstyle=\ttfamily\small,
+    aboveskip={1.0\baselineskip},
+    belowskip={1.0\baselineskip},
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=4,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=lines,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    numbers=left,
+    numberstyle=\small,
+    stepnumber=1,
+    numbersep=10pt,
+    captionpos=t,
+    escapeinside={\%*}{*)}
+}
+%----------------------------------------------------------------------------------------------------------%
+\include{bia1}
+\include{bia2}
+
+\newcommand\pagetitle{%
+	\null
+	\thispagestyle{empty}%
+	\addtocounter{page}{-1}%
+	\begin{center}
+		
+		\huge{\textbf{Xây dựng hệ thống thu thập dữ liệu trên nền tảng mạng cảm biến không dây multi-hop và hệ điều hành nhúng phục vụ cho ứng dụng Internet of Things }}\\        
+        \vspace{1.5cm}
+        \LARGE{\textbf{
+        Version 1.0
+		}}
+	\end{center}  
+	\newpage  
+}
+\pagetitle
+
+\newcommand\blankpage{%
+	\null
+	\thispagestyle{empty}%
+	\addtocounter{page}{-1}%
+	\begin{center}
+	\end{center}  
+	\newpage  
+}
+\blankpage
+
+\section*{Revision history }
+\begin{center}
+	\begin{table}[!h]
+		\begin{tabular}{|l|c|p{9cm}|}
+			\hline
+			\textbf{Date} & \textbf{Version} &\textbf{ Description} \\ 
+			\hline
+			17/09/2018 & 0.1 & Tìm hiểu chuẩn giao tiếp không dây LoRa 
+			
+			Tìm hiểu hệ điều hành nhúng Android Things đang được hỗ trợ bởi Google cho các mạng cảm biến IoTs\\
+			\hline
+			02/10/2018 & 0.2 & Nạp hệ điều hành nhúng Android Things lên mạch Raspberry Pi 3\\ 
+			\hline
+			10/10/2018 & 0.3 & Tìm hiểu và thực hiện giao tiếp SPI giữa Raspberry Pi 3B và mạch LoRa Hat\\ 
+			\hline
+			08/12/2017 & 1.0 & Đề xuất hướng phát triển trong giai đoạn luận văn, chỉnh sửa hoàn thiện chương 1,2,3 và điều chỉnh định dạng tài liệu\\ 
+			\hline
+		\end{tabular}
+	\end{table}
+\end{center}
+
+\newpage
+
+\tableofcontents
+\include{Loicamon}
+\include{tuviettat}
+\listoffigures
+\listoftables
+\include{chuong1}
+\include{chuong2}
+\include{chuong3}
+\include{chuong4}
+\include{chuong5}
+\include{chuong6}
+\include{tailieuthamkhao}
+\end{document}
+
+%%21:16:49 1/9/2012Last Modification of contents
